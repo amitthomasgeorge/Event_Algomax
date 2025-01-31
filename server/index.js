@@ -14,11 +14,6 @@ const session = require('express-session');
 app.use(bodypar.json());
 const authRoutes = require("./routes/auth");
 app.use(bodypar.urlencoded({ extended : true }));
-app.use(session({
-    secret: 'your_secret_key',
-    resave: false,
-    saveUninitialized: true,
-}));
 
 const server = app.listen(3000,()=>{
   console.log('server running');
