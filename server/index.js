@@ -678,4 +678,46 @@ app.get('/categoryadmin', (req, res) => {
   });
 });
 
+app.post('/deletewishlist',(req,res)=>{
+  var values=[]
+  const eventid=req.query.eventid;
+  const username=req.query.username;
+  const bid=req.query.bid;
 
+  const query=`DELETE FROM user1 WHERE bid=? and eventid=? and username=?`;
+  values=[bid,eventid,username];
+con.query(query,values,(err,result)=>{
+  if (err) {
+    console.error('Error executing query:', err);
+    return;
+  }
+  res.json(result);
+})
+});
+
+app.post('/wishlist',(req,res)=>{
+  const{username,eventid,quantity,Organiser}= req.body;
+  const sql = `INSERT INTO user1 (eventid,username,quantity,Organiser) VALUES (?,?,?,?)`;
+  const values = [eventid,username,quantity,Organiser];
+  
+  con.query(sql, values, (err, result) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      return;
+    }
+  });
+});
+
+    app.get('/fetchwishlist',(req,res)=>{
+      const username  = req.query.username;
+      console.log(username);
+      const  query='Select user1.eventid as eventid,eventname,Location,user1.Organiser as Organiser,user1.username as user,user1.bid as bid,quantity from organization,user1 where organization.id=user1.eventid and user1.username=?';
+      const values=[username];
+      con.query(query,values,(err,result)=>{
+        if (err) {
+          console.error('Error executing query:', err);
+          return;
+        }
+        res.json(result);
+      })
+      });
