@@ -721,3 +721,17 @@ app.post('/wishlist',(req,res)=>{
         res.json(result);
       })
       });
+
+    app.get('/dashwishlist',(req,res)=>{
+        const username  = req.query.username;
+        console.log(username);
+        const  query='Select user1.eventid as eventid from user1 where user1.username=?';
+        const values=[username];
+        con.query(query,values,(err,result)=>{
+          if (err) {
+            console.error('Error executing query:', err);
+            return;
+          }
+          res.json(result.map(row => row.eventid));
+        })
+        });
