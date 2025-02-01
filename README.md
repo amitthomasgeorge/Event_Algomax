@@ -1,8 +1,8 @@
-Event Algomax
+Event Algomox
 
 Overview
 
-Event Algomax is a Flutter-based event management system that enables users to create, manage, and participate in events. The system is powered by a Node.js backend and uses phpMyAdmin for MySQL database management. It is designed to streamline event organization with features like role-based authentication, event registration, and an intuitive user interface.
+Event Algomox is a Flutter-based event management system that enables users to create, manage, and participate in events. The system is powered by a Node.js backend and uses phpMyAdmin for MySQL database management. It is designed to streamline event organization with features like role-based authentication, event registration, and an intuitive user interface.
 
 Features
 	•	User Authentication: Secure login and signup functionality.
@@ -100,7 +100,7 @@ Usage Guide
 
 Contributing
 
-We welcome contributions to improve Event Algomax!
+We welcome contributions to improve Event Algomox!
 To contribute:
 
 	1.	Fork the repository.
