@@ -1,0 +1,14 @@
+<script>start("/Users/amit/eventmanagement/build/web/");</script>
+<script>onHasParentDirectory();</script>
+<script>addRow("assets","assets",1,352,"352 B",1738385776,"01/02/2025, 10:26:16");</script>
+<script>addRow("canvaskit","canvaskit",1,320,"320 B",1738385757,"01/02/2025, 10:25:57");</script>
+<script>addRow("icons","icons",1,192,"192 B",1738385778,"01/02/2025, 10:26:18");</script>
+<script>addRow(".last_build_id",".last_build_id",0,32,"32 B",1738385778,"01/02/2025, 10:26:18");</script>
+<script>addRow("favicon.png","favicon.png",0,917,"917 B",1734338504,"16/12/2024, 14:11:44");</script>
+<script>addRow("flutter_bootstrap.js","flutter_bootstrap.js",0,8108,"7.9 kB",1738385757,"01/02/2025, 10:25:57");</script>
+<script>addRow("flutter_service_worker.js","flutter_service_worker.js",0,8388,"8.2 kB",1738385778,"01/02/2025, 10:26:18");</script>
+<script>addRow("flutter.js","flutter.js",0,7787,"7.6 kB",1736503782,"10/01/2025, 15:39:42");</script>
+<script>addRow("index.html","index.html",0,1211,"1.2 kB",1738385757,"01/02/2025, 10:25:57");</script>
+<script>addRow("main.dart.js","main.dart.js",0,2470714,"2.4 MB",1738385775,"01/02/2025, 10:26:15");</script>
+<script>addRow("manifest.json","manifest.json",0,926,"926 B",1737635063,"23/01/2025, 17:54:23");</script>
+<script>addRow("version.json","version.json",0,100,"100 B",1738385776,"01/02/2025, 10:26:16");</script>
