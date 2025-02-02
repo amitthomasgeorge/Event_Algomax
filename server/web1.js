@@ -1,13 +1,16 @@
-var mysql = require("mysql")
-var con=mysql.createConnection({
+var mysql = require("mysql");
+
+var con = mysql.createPool({
+    connectionLimit: 10,
     host: 'bsat8p5xnva0yj1vchrm-mysql.services.clever-cloud.com',
     user: 'uianxt3quoyt8r0e',
     password: 'aRrSttlUE8ksq2fmwV3t',
     database: 'bsat8p5xnva0yj1vchrm',
-    connectTimeout: 100000
-});
-con.connect((error)=>{
-    if(error)  throw error;
+    port: '3000',
+    connectTimeout: 28800000,
+    acquireTimeout: 28800000,
+    waitForConnections: true,
+    queueLimit: 0
 });
 
 module.exports = con;
