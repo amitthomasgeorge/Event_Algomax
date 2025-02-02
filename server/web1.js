@@ -6,7 +6,6 @@ var con = mysql.createPool({
     user: 'uianxt3quoyt8r0e',
     password: 'aRrSttlUE8ksq2fmwV3t',
     database: 'bsat8p5xnva0yj1vchrm',
-    port: '3000',
     connectTimeout: 28800000,
     acquireTimeout: 28800000,
     waitForConnections: true,
