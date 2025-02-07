@@ -725,7 +725,7 @@ app.post('/wishlist',(req,res)=>{
     app.get('/dashwishlist',(req,res)=>{
         const username  = req.query.username;
         console.log(username);
-        const  query='Select user1.eventid as eventid from user1 where user1.username=?';
+        const  query='Select user1.eventid as eventid from user1 where user1.username=? and user1.eventid>0';
         const values=[username];
         con.query(query,values,(err,result)=>{
           if (err) {
