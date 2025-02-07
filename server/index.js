@@ -38,7 +38,7 @@ wss.on('connection', (ws) => {
       const id = data.id;
       const quant=data.quantity;
       // Check if the ticket is available in the database
-      con.query('SELECT * FROM organization WHERE id = ? AND ticket>0 AND ticket-? > 0', [id,quant], (err, results) => {
+      con.query('SELECT * FROM organization WHERE id = ? AND ticket>0 AND ticket-? >= 0', [id,quant], (err, results) => {
         if (err) {
           ws.send(JSON.stringify({ success: false, message: 'Database error' }));
           return;
@@ -325,7 +325,7 @@ app.post('/create-order', async (req, res) => {
   try {
     const {amount,id,quantity} = req.body;
     console.log(amount);// Amount in rupees
-    con.query('SELECT * FROM organization WHERE id = ? AND ticket>0 AND ticket-? > 0', [id,quantity], (err, results) => {
+    con.query('SELECT * FROM organization WHERE id = ? AND ticket>0 AND ticket-? >= 0', [id,quantity], (err, results) => {
     if (results.length > 0) {
     const order = razorpay.orders.create({
       amount: amount * 100,  // Convert amount to paise
