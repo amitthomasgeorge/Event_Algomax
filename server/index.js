@@ -38,7 +38,7 @@ wss.on('connection', (ws) => {
       const id = data.id;
       const quant=data.quantity;
       // Check if the ticket is available in the database
-      con.query('SELECT * FROM organization WHERE id = ? AND ticket>0', [id], (err, results) => {
+      con.query('SELECT * FROM organization WHERE id = ? AND ticket>0 AND ticket-? > 0', [id,quant], (err, results) => {
         if (err) {
           ws.send(JSON.stringify({ success: false, message: 'Database error' }));
           return;
@@ -321,10 +321,13 @@ const razorpay = new Razorpay({
 });
 
 app.post('/create-order', async (req, res) => {
+
   try {
-    const {amount} = req.body;
+    const {amount,id,quantity} = req.body;
     console.log(amount);// Amount in rupees
-    const order = await razorpay.orders.create({
+    con.query('SELECT * FROM organization WHERE id = ? AND ticket>0 AND ticket-? > 0', [id,quantity], (err, results) => {
+    if (results.length > 0) {
+    const order = razorpay.orders.create({
       amount: amount * 100,  // Convert amount to paise
       currency: 'INR',
       receipt: `receipt_${Date.now()}`,
@@ -335,7 +338,13 @@ app.post('/create-order', async (req, res) => {
       currency: order.currency,
       amount: order.amount,
     });
-  } catch (error) {
+  }
+  else
+  {
+    res.status(500).send("Not Available");
+  }
+})}
+  catch (error) {
     console.error('Error creating order:', error);
     res.status(500).send('Internal Server Error');
   }
