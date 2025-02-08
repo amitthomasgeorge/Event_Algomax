@@ -6,7 +6,13 @@ var con = require("./web1");
 const cors  = require('cors');
 const app=express();
 require("dotenv").config();
-app.use(cors());
+app.use(cors(
+  {
+  origin: ['https://eventmanageralgomax.netlify.app/','http://localhost:3000'],
+  methods: 'GET,POST,PUT,DELETE',
+  credentials: true
+}
+));
 var bodypar=require("body-parser");
 const { error } = require("console");
 const path = require("path");
