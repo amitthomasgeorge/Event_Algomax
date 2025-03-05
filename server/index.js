@@ -516,9 +516,9 @@ app.get('/fetchuser',(req,res)=>{
   if(Location!=null || Category!=null)
   {
     if(Location!=null && Category!=null)
-      query='Select * from organization WHERE Location=? and Category=?';
+      query='Select * from organization WHERE Location=? and Category=? and Date >= CURDATE() and ticket > 0';
     else
-    query='Select * from organization WHERE Location=? or Category=?';
+    query='Select * from organization WHERE Location=? or Category=? and Date >= CURDATE() and ticket > 0';
   }
   else
   {
