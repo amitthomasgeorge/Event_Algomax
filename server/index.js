@@ -518,11 +518,11 @@ app.get('/fetchuser',(req,res)=>{
     if(Location!=null && Category!=null)
       query='Select * from organization WHERE Location=? and Category=? and Date >= CURDATE() and ticket > 0';
     else
-    query='Select * from organization WHERE Location=? or Category=? and Date >= CURDATE() and ticket > 0';
+    query='Select * from organization WHERE Date >= CURDATE() and ticket > 0 and Location=? or Category=?';
   }
   else
   {
-    query='Select * from organization WHERE ticket > 0';
+    query='Select * from organization WHERE Date >= CURDATE() and ticket > 0';
   }
   const values=[Location,Category];
   con.query(query,values,(err,result)=>{
