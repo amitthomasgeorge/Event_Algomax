@@ -522,7 +522,7 @@ app.get('/fetchuser',(req,res)=>{
   }
   else
   {
-    query='Select * from organization WHERE Date >= CURDATE() and ticket>0';
+    query='Select * from organization WHERE ticket > 0';
   }
   const values=[Location,Category];
   con.query(query,values,(err,result)=>{
