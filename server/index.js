@@ -489,7 +489,7 @@ if(Location!=null || Category!=null)
 }
 else
 {
-  query='Select * from organization and Date >= CURDATE() and ticket > 0';
+  query='Select * from organization WHERE Date >= CURDATE() and ticket > 0';
 }
 if(Location!=null || Category!=null)
 {
