@@ -485,7 +485,7 @@ if(Location!=null || Category!=null)
   if(Location!=null && Category!=null)
     query='Select * from organization WHERE Date >= CURDATE() and ticket > 0 and Location=? and Category=?';
   else
-  query='Select * from organization WHERE Date >= CURDATE() and ticket > 0 and Location=? and Category=?';
+  query='Select * from organization WHERE Date >= CURDATE() and ticket > 0 and Location=? or Category=?';
 }
 else
 {
@@ -516,7 +516,7 @@ app.get('/fetchuser',(req,res)=>{
   if(Location!=null || Category!=null)
   {
     if(Location!=null && Category!=null)
-      query='Select * from organization WHERE Location=? and Category=? and Date >= CURDATE() and ticket > 0';
+      query='Select * from organization WHERE Date >= CURDATE() and ticket > 0 and Location=? and Category=?';
     else
     query='Select * from organization WHERE Date >= CURDATE() and ticket > 0 and Location=? or Category=?';
   }
