@@ -17,6 +17,7 @@ app.use(bodypar.urlencoded({ extended : true }));
 
 require('dotenv').config();
 const PORT = process.env.PORT || 5000;
+console.log(`✅ Server running on port ${PORT}`);
 
 const server = app.listen(PORT,()=>{
   console.log('server running');
