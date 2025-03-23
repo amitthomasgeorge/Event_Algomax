@@ -15,8 +15,12 @@ app.use(bodypar.json());
 const authRoutes = require("./routes/auth");
 app.use(bodypar.urlencoded({ extended : true }));
 
-const server = app.listen(3000,()=>{
+require('dotenv').config();
+const PORT = process.env.PORT || 3306;
+
+const server = app.listen(PORT,()=>{
   console.log('server running');
+  console.log(process.env);
 });
 
 app.use("/api/auth", authRoutes);
