@@ -16,7 +16,7 @@ const authRoutes = require("./routes/auth");
 app.use(bodypar.urlencoded({ extended : true }));
 
 require('dotenv').config();
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 5000;
 
 const server = app.listen(PORT,()=>{
   console.log('server running');
